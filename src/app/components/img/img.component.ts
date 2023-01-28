@@ -1,18 +1,54 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss'],
 })
-export class ImgComponent implements OnInit {
+export class ImgComponent
+  implements OnInit, OnChanges, AfterViewInit, OnDestroy
+{
   @Input() img: string = '';
   @Output() loaded = new EventEmitter<string>();
   defaultImage: string = './assets/images/placeholder.png';
 
-  constructor() {}
+  constructor() {
+    // never run async - fetch
+    // run once
+    console.log('Constructor imgValue ==> ', this.img);
+  }
+  ngOnDestroy(): void {
+    // delete the component
+    console.log('ngOnDestroy');
+  }
+  ngAfterViewInit(): void {
+    // run after render
+    // handler child components here!
+    console.log('ngAfterViewInit');
+  }
+  ngOnChanges(): void {
+    // run before and during
+    // before render
+    // update change inputs, run many times
+    console.log('ngOnChanges imgValue ==> ', this.img);
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // run before render
+    // run once
+    // run async - fetch, query apis, you must use this method to do this!
+    console.log('ngOnInit imgValue ==> ', this.img);
+  }
 
   imgError() {
     this.img = this.defaultImage;
