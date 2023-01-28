@@ -9,6 +9,7 @@ import { Product } from './models/product.model';
 export class AppComponent {
   title = 'my-store-2023';
   imgParent = '';
+  showImage: boolean = true;
   products: Product[] = [
     {
       id: '1',
@@ -35,6 +36,10 @@ export class AppComponent {
       image: './assets/images/books.jpg',
     },
   ];
+
+  toggleImg() {
+    this.showImage = !this.showImage;
+  }
 
   onLoaded(img: string) {
     console.log('parent log', img);
