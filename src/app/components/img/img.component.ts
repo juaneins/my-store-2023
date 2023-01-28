@@ -27,8 +27,8 @@ export class ImgComponent
   @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
   defaultImage: string = './assets/images/placeholder.png';
-  counter: number = 0;
-  counterFn: number | undefined;
+  // counter: number = 0;
+  // counterFn: number | undefined;
 
   constructor() {
     // never run async - fetch
@@ -38,7 +38,7 @@ export class ImgComponent
   ngOnDestroy(): void {
     // delete the component
     console.log('ngOnDestroy');
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
   }
   ngAfterViewInit(): void {
     // run after render
@@ -58,10 +58,10 @@ export class ImgComponent
     // run once
     // run async - fetch, query apis, you must use this method to do this!
     console.log('ngOnInit imgValue ==> ', this.img);
-    this.counterFn = window.setInterval(() => {
-      this.counter++;
-      console.log('run counter');
-    }, 1000);
+    // this.counterFn = window.setInterval(() => {
+    //   this.counter++;
+    //   console.log('run counter');
+    // }, 1000);
   }
 
   imgError() {
