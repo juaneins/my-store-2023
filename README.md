@@ -37,3 +37,11 @@ parent --> Child
 
 pass information from child to parent
 Child --> parent
+
+## custom pipes
+
+ng g p pipes/myPipe
+
+# date custom pipes
+
+npm i date-fns
