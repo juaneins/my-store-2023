@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { StoreService } from '../../services/store.service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -36,17 +38,21 @@ export class ProductsComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private storeService: StoreService) {
+    this.myShoppingCart = this.storeService.getShoppingCart();
+  }
 
   ngOnInit(): void {}
 
   onAddToShoppingCart(product: Product) {
     console.log(product);
-    this.myShoppingCart.push(product);
-    //this.total += product.price;
-    this.total = this.myShoppingCart.reduce(
-      (acum, item) => acum + item.price,
-      0
-    );
+    // this.myShoppingCart.push(product);
+    // //this.total += product.price;
+    // this.total = this.myShoppingCart.reduce(
+    //   (acum, item) => acum + item.price,
+    //   0
+    // );
+    this.storeService.addProduct(product);
+    this.total = this.storeService.getTotal();
   }
 }
