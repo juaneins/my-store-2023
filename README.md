@@ -45,3 +45,9 @@ ng g p pipes/myPipe
 # date custom pipes
 
 npm i date-fns
+
+## directives
+
+used for manipulate DOM
+
+ng g d directives/highlight
