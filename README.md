@@ -58,3 +58,9 @@ when the dom is huge and communicate between nodes is hard: communicate between 
 you must get from child --> parent -->parent --> child then the same reverse route
 
 using reactivity you only subscribe to a event
+
+## linter
+
+install EsLint extension in VSCode
+
+ng lint
