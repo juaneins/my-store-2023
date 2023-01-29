@@ -1,5 +1,7 @@
 <p>Number of items: {{ myShoppingCart.length }}</p>
-<p>Total: {{ total | currency }}</p>
+<p>Total: {{ total | currency : "USD" }}</p>
+<p>Today: {{ today | date : "EEEE dd/MM/YYYY" }}</p>
+<p>Some date: {{ someDate | date : "short" }}</p>
 <div class="products--grid">
   <app-product
     [product]="product"
